@@ -2,6 +2,12 @@
 
 int main(void)
 {
-	Bureaucrat greg;
+	try {
+		Bureaucrat Juan("Juanito", 151);
+		std::cout << Juan << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }
