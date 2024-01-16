@@ -22,7 +22,11 @@ Form::Form(const Form &other)
 }
 
 Form::~Form(){
+}
 
+
+const bool Form::getStatus(){
+	return this->_signed;
 }
 
 void Form::beSigned(const Bureaucrat &signee){
@@ -32,12 +36,25 @@ void Form::beSigned(const Bureaucrat &signee){
 		_signed = true;
 }
 
-Form &Form::operator=(const Form &other){
-	if (this != &other){
-		//Do something or other for the variables
-	}
+Form &Form::operator=(Form &other){
+	this->_signed = other.getStatus();
+    return *this;
 }
 
-const std::string Form::getName(){
+const std::string Form::getName() const{
 	return this->_name;
+}
+
+const int Form::getGradeSign() const{
+	return this->_req_grade_sign;
+}
+
+const int Form::getGradeExec() const{
+	return this->_req_grade_exec;
+}
+
+std::ostream& operator<<(std::ostream& o, Form const &form)
+{
+	o << "Name: " << form.getName() << " | Form grade to sign: " << form.getGradeSign() << " | Form grade to execute: " << form.getGradeExec();
+	return o;
 }

@@ -27,6 +27,7 @@ class Bureaucrat {
 		~Bureaucrat();
 		Bureaucrat &operator=(const Bureaucrat &other);
 };
+
 class GradeTooHigh : public std::exception {
 	const char * what() const throw() {
 		return "Grade too high.";
