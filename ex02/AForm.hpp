@@ -22,6 +22,7 @@ class AForm {
 
 		//MEMBER FUNCTIONS
 		void	beSigned(const Bureaucrat &signee);
+		void	execute(Bureaucrat const & executor) const;
 
 		//CONSTRUCTORS AND DESTRUCTOR
 		AForm();
