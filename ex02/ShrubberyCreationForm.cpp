@@ -32,6 +32,12 @@ std::ostream& operator<<(std::ostream& o, ShrubberyCreationForm const &bc) {
 	return o;
 }
 
-void ShrubberyCreationForm::execute(const std::string target){
-	
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	std::ofstream output(_target + "_shrubbery");
+
+	if (!output.is_open()){
+		throw FileNotOpen();
+	}
+	output << "Hello, World!";
+	output.close();
 }

@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-class Form;
+class AForm;
 
 const std::string Bureaucrat::getName() const{
 	return (this->_name);
@@ -32,7 +32,7 @@ Bureaucrat::~Bureaucrat(){
 
 }
 
-void Bureaucrat::signForm(Form &form){
+void Bureaucrat::signForm(AForm &form){
 	try {
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;

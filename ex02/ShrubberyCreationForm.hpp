@@ -14,7 +14,7 @@ class ShrubberyCreationForm : public AForm {
 		ShrubberyCreationForm(ShrubberyCreationForm const &other);
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
 		~ShrubberyCreationForm();
-		void execute(const std::string target); 
+		void execute(Bureaucrat const & executor) const; 
 };
 
 class FileNotOpen : public std::exception {

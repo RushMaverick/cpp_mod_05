@@ -10,7 +10,7 @@ FLAGS    := -Wall -Wextra -Werror
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        =      main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp\
+SRCS        =      main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp\
                           
 OBJS        := ${SRCS:.cpp=.o}
 

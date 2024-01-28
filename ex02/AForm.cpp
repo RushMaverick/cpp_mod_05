@@ -36,15 +36,9 @@ void AForm::beSigned(const Bureaucrat &signee){
 		_signed = true;
 }
 
-// void	AForm::execute(Bureaucrat const & executor) const{
-// 	/*implement a function to execute the form’s action of the concrete
-// classes. You have to check that the form is signed and that the grade of the bureaucrat
-// attempting to execute the form is high enough. Otherwise, throw an appropriate exception.*/
-// 	if (this->_signed && executor.getGrade() <= this->getGradeExec())
-// 		//Do stuff
-// 	else
-// 		throw GradeTooLow();
-// }
+void	AForm::execute(Bureaucrat const & executor) const{
+	std::cout << "No defined behaviour." << std::endl;
+}
 
 AForm &AForm::operator=(AForm &other){
 	this->_signed = other.getStatus();

@@ -21,8 +21,8 @@ class AForm {
 		const bool			getStatus();
 
 		//MEMBER FUNCTIONS
-		void	beSigned(const Bureaucrat &signee);
-		void	execute(Bureaucrat const & executor) const;
+		void			beSigned(const Bureaucrat &signee);
+		virtual void	execute(Bureaucrat const &executor) const = 0;
 
 		//CONSTRUCTORS AND DESTRUCTOR
 		AForm();

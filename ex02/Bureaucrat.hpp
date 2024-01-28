@@ -5,8 +5,8 @@
 #include <string>
 #include <exception>
 
-#include "Form.hpp"
-class Form;
+#include "AForm.hpp"
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -19,7 +19,7 @@ class Bureaucrat {
 		//MEMBER FUNCTIONS
 		void				incrementBureau();
 		void				decrementBureau();
-		void				signForm(Form &form);
+		void				signForm(AForm &form);
 		//CONSTRUCTORS AND DESTRUCTORS
 		Bureaucrat();
 		Bureaucrat(const std::string name, int grade);
