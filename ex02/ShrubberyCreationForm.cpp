@@ -12,15 +12,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
 
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const & other)
-{
-	_target = other.getName();
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const & other){
+	_target = other._target;
+	this->AForm::setStatus(other.getStatus());
 	return *this;
 }
 
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
-: _target(other.getName()){
+: _target(other._target){
 	*this = other;
 }
 
@@ -33,11 +33,25 @@ std::ostream& operator<<(std::ostream& o, ShrubberyCreationForm const &bc) {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	
+	if (executor.getGrade() > this->getGradeExec())
+		throw GradeTooLow();
 	std::ofstream output(_target + "_shrubbery");
 
 	if (!output.is_open()){
 		throw FileNotOpen();
 	}
-	output << "Hello, World!";
+	
+	std::string tree =
+	"     ^\n"
+	"    ^^^\n"
+	"   ^^^^^\n"
+	"  ^^^^^^^\n"
+	" ^^^^^^^^^\n"
+	"^^^^^^^^^^^\n"
+	"     U      \n";
+
+	std::cout << "Sending shrubbery to " << _target << "." << std::endl;
+	output << tree;
 	output.close();
 }

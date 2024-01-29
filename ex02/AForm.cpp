@@ -24,11 +24,6 @@ AForm::AForm(const AForm &other)
 AForm::~AForm(){
 }
 
-
-const bool AForm::getStatus(){
-	return this->_signed;
-}
-
 void AForm::beSigned(const Bureaucrat &signee){
 	if (signee.getGrade() > this->_req_grade_sign)
 		throw GradeTooLow();
@@ -38,6 +33,14 @@ void AForm::beSigned(const Bureaucrat &signee){
 
 void	AForm::execute(Bureaucrat const & executor) const{
 	std::cout << "No defined behaviour." << std::endl;
+}
+
+const bool AForm::getStatus() const{
+	return this->_signed;
+}
+
+void	AForm::setStatus(bool signStatus) {
+	this->_signed = signStatus;
 }
 
 AForm &AForm::operator=(AForm &other){

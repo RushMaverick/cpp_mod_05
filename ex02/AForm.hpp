@@ -1,5 +1,5 @@
-#ifndef AFORMHPP
-#define AFORMHPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <string>
 #include <exception>
@@ -18,11 +18,12 @@ class AForm {
 		const int			getGradeSign() const;
 		const int			getGradeExec() const;
 		const std::string	getName() const;
-		const bool			getStatus();
+		const bool			getStatus() const;
 
 		//MEMBER FUNCTIONS
 		void			beSigned(const Bureaucrat &signee);
 		virtual void	execute(Bureaucrat const &executor) const = 0;
+		void			setStatus(const bool signStatus);
 
 		//CONSTRUCTORS AND DESTRUCTOR
 		AForm();
