@@ -49,7 +49,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 	"  ^^^^^^^\n"
 	" ^^^^^^^^^\n"
 	"^^^^^^^^^^^\n"
-	"     U      \n . . . .";
+	"     U      \n";
 
 	std::cout << "Sending shrubbery to " << _target << "." << std::endl;
 	output << tree;
