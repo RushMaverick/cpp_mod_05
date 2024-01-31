@@ -26,19 +26,19 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();
 		Bureaucrat &operator=(const Bureaucrat &other);
+		class GradeTooHigh : public std::exception {
+			const char * what() const throw() {
+				return "Grade too high.";
+			}
+		};
+
+		class GradeTooLow : public std::exception {
+			const char * what() const throw() {
+				return "Grade too low.";
+			}
+		};
 };
 
-class GradeTooHigh : public std::exception {
-	const char * what() const throw() {
-		return "Grade too high.";
-	}
-};
-
-class GradeTooLow : public std::exception {
-	const char * what() const throw() {
-		return "Grade too low.";
-	}
-};
 
 std::ostream& operator<<(std::ostream& o, Bureaucrat const &bc);
 

@@ -26,7 +26,7 @@ AForm::~AForm(){
 
 void AForm::beSigned(const Bureaucrat &signee){
 	if (signee.getGrade() > this->_req_grade_sign)
-		throw GradeTooLow();
+		throw Bureaucrat::GradeTooLow();
 	else
 		_signed = true;
 }

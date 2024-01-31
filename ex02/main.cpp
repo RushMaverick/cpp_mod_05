@@ -14,6 +14,8 @@ int main(void)
 		std::cout << superForm << std::endl;
 
 		superForm.execute(Mark);
+		superForm.execute(Mark);
+		superForm.execute(Mark);
 		std::cout << std::endl;
 	}
 	catch (const std::exception &e){
@@ -22,6 +24,20 @@ int main(void)
 
 	try {
 		Bureaucrat Mark("Mark", 37);
+		RobotomyRequestForm roboForm(Mark.getName());
+
+		std::cout << Mark << std::endl;
+		std::cout << roboForm << std::endl;
+
+		roboForm.execute(Mark);
+		std::cout << std::endl;
+	}
+	catch (const std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+
+	try {
+		Bureaucrat Mark("Mark", 73);
 		RobotomyRequestForm roboForm(Mark.getName());
 
 		std::cout << Mark << std::endl;

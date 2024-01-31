@@ -8,19 +8,15 @@ class ShrubberyCreationForm;
 class PresidentialPardonForm;
 class RobotomyRequestForm;
 
-Intern::Intern()
-: _name("John Doe"){
+Intern::Intern(){
 }
 
-Intern::Intern(const Intern &other) 
-: _name(other._name){
+Intern::Intern(const Intern &other) {
 	*this = other;
 }
 
 Intern &Intern::operator=(const Intern &other) {
-	if (this != &other) {
-		_name = other._name;
-	}
+	(void)other;
 	return *this;
 }
 
@@ -33,10 +29,10 @@ AForm *Intern::makeForm(const std::string formType, const std::string formName){
 
 	for (int i = 0; i < 3; i++){
 		if (strArray[i] == formType){
-			std::cout << "Intern creates " << strArray[i] << std::endl;
+			std::cout << "Intern creates " << strArray[i] << "." <<std::endl;
 			return formArray[i];
 		}
 	}
-	std::cout << "Intern could not create "<< formType << std::endl;
+	std::cout << "Intern could not create "<< formType << "." << std::endl;
 	return nullptr;
 }

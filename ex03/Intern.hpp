@@ -8,8 +8,6 @@ class AForm;
 #include <exception>
 
 class Intern {
-	private:
-		std::string _name;
 	public:
 		AForm *makeForm(const std::string formType, const std::string formName);
 		Intern();

@@ -36,14 +36,16 @@ std::ostream& operator<<(std::ostream& o, RobotomyRequestForm const &rrf) {
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
 	
 	if (executor.getGrade() > this->getGradeExec())
-		throw GradeTooLow();
-	else
+		throw Bureaucrat::GradeTooLow();
+	if (this->getStatus() == 1)
 	{
 		std::cout << "*WRRRRRRR-KACHINK-CHKCHKCHK-WHIIRRRRRRRRRRRRRR*" << std::endl;
 		static int i;
 		if (i % 2 == 0)
-			std::cout << this->_target << " has been robotomized." << std::endl;
+			std::cout << executor.getName() << " has been robotomized." << std::endl;
 		else
 			std::cout << "The robotomy failed." << std::endl;
 	}
+	else
+		std::cout << executor.getName() << " can not execute form since it is not signed." << std::endl;
 }

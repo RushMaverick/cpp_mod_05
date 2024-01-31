@@ -2,50 +2,23 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include "AForm.hpp"
 
 int main(void)
 {
 	try {
-		Bureaucrat Mark("Mark", 37);
-		ShrubberyCreationForm superForm(Mark.getName());
+		Intern Mark;
+		Bureaucrat Teemu("Teemu", 2);
 
-		std::cout << Mark << std::endl;
-		std::cout << superForm << std::endl;
+		AForm *someForm = Mark.makeForm("presidential pardon form", "someform");
 
-		superForm.execute(Mark);
-		std::cout << std::endl;
+		std::cout << *someForm << std::endl;
+		someForm->execute(Teemu);
+		someForm->beSigned(Teemu);
+		someForm->execute(Teemu);
 	}
 	catch (const std::exception &e){
 		std::cout << e.what() << std::endl;
 	}
-
-	try {
-		Bureaucrat Mark("Mark", 37);
-		RobotomyRequestForm roboForm(Mark.getName());
-
-		std::cout << Mark << std::endl;
-		std::cout << roboForm << std::endl;
-
-		roboForm.execute(Mark);
-		std::cout << std::endl;
-	}
-	catch (const std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		Bureaucrat Mark("Mark", 5);
-		PresidentialPardonForm presForm(Mark.getName());
-
-		std::cout << Mark << std::endl;
-		std::cout << presForm << std::endl;
-
-		presForm.execute(Mark);
-		std::cout << std::endl;
-	}
-	catch (const std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	return 0;
 }

@@ -35,23 +35,29 @@ std::ostream& operator<<(std::ostream& o, ShrubberyCreationForm const &bc) {
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 	
 	if (executor.getGrade() > this->getGradeExec())
-		throw GradeTooLow();
-	std::ofstream output(_target + "_shrubbery");
+		throw Bureaucrat::GradeTooLow();
 
-	if (!output.is_open()){
-		throw FileNotOpen();
+	if (this->getStatus() == 1){
+		std::ofstream output(_target + "_shrubbery");
+
+		if (!output.is_open()){
+			throw FileNotOpen();
+		}
+		
+		std::string tree =
+		"     ^\n"
+		"    ^^^\n"
+		"   ^^^^^\n"
+		"  ^^^^^^^\n"
+		" ^^^^^^^^^\n"
+		"^^^^^^^^^^^\n"
+		"     U      \n";
+
+		std::cout << "Sending shrubbery to " << _target << "." << std::endl;
+		output << tree;
+		output.close();
 	}
-	
-	std::string tree =
-	"     ^\n"
-	"    ^^^\n"
-	"   ^^^^^\n"
-	"  ^^^^^^^\n"
-	" ^^^^^^^^^\n"
-	"^^^^^^^^^^^\n"
-	"     U      \n";
-
-	std::cout << "Sending shrubbery to " << _target << "." << std::endl;
-	output << tree;
-	output.close();
+	else
+		std::cout << executor.getName() << " can not execute form since it is not signed." << std::endl;
 }
+
