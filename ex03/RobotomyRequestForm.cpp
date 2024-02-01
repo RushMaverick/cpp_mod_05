@@ -45,6 +45,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
 			std::cout << executor.getName() << " has been robotomized." << std::endl;
 		else
 			std::cout << "The robotomy failed." << std::endl;
+		i++;
 	}
 	else
 		std::cout << executor.getName() << " can not execute form since it is not signed." << std::endl;

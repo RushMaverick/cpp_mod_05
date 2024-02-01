@@ -7,15 +7,14 @@
 int main(void)
 {
 	try {
-		Bureaucrat Mark("Mark", 37);
-		ShrubberyCreationForm superForm(Mark.getName());
+		Bureaucrat Dean("Dean", 37);
+		ShrubberyCreationForm superForm(Dean.getName());
 
-		std::cout << Mark << std::endl;
+		std::cout << Dean << std::endl;
 		std::cout << superForm << std::endl;
 
-		superForm.execute(Mark);
-		superForm.execute(Mark);
-		superForm.execute(Mark);
+		Dean.signForm(superForm);
+		superForm.execute(Dean);
 		std::cout << std::endl;
 	}
 	catch (const std::exception &e){
@@ -23,13 +22,17 @@ int main(void)
 	}
 
 	try {
-		Bureaucrat Mark("Mark", 37);
-		RobotomyRequestForm roboForm(Mark.getName());
+		Bureaucrat Caruy("Caruy", 37);
+		RobotomyRequestForm roboForm(Caruy.getName());
 
-		std::cout << Mark << std::endl;
+		std::cout << Caruy << std::endl;
 		std::cout << roboForm << std::endl;
-
-		roboForm.execute(Mark);
+		
+		Caruy.signForm(roboForm);
+		roboForm.execute(Caruy);
+		roboForm.execute(Caruy);
+		roboForm.execute(Caruy);
+		roboForm.execute(Caruy);
 		std::cout << std::endl;
 	}
 	catch (const std::exception &e){
@@ -37,27 +40,14 @@ int main(void)
 	}
 
 	try {
-		Bureaucrat Mark("Mark", 73);
-		RobotomyRequestForm roboForm(Mark.getName());
+		Bureaucrat David("David", 5);
+		PresidentialPardonForm presForm(David.getName());
 
-		std::cout << Mark << std::endl;
-		std::cout << roboForm << std::endl;
-
-		roboForm.execute(Mark);
-		std::cout << std::endl;
-	}
-	catch (const std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		Bureaucrat Mark("Mark", 5);
-		PresidentialPardonForm presForm(Mark.getName());
-
-		std::cout << Mark << std::endl;
+		std::cout << David << std::endl;
 		std::cout << presForm << std::endl;
 
-		presForm.execute(Mark);
+		David.signForm(presForm);
+		presForm.execute(David);
 		std::cout << std::endl;
 	}
 	catch (const std::exception &e){

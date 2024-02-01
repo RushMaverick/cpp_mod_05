@@ -9,14 +9,14 @@ int main(void)
 {
 	try {
 		Intern Mark;
-		Bureaucrat Teemu("Teemu", 2);
+		Bureaucrat Andre("Andre", 2);
 
 		AForm *someForm = Mark.makeForm("presidential pardon form", "someform");
 
 		std::cout << *someForm << std::endl;
-		someForm->execute(Teemu);
-		someForm->beSigned(Teemu);
-		someForm->execute(Teemu);
+		someForm->execute(Andre);
+		Andre.signForm(*someForm);
+		someForm->execute(Andre);
 	}
 	catch (const std::exception &e){
 		std::cout << e.what() << std::endl;
